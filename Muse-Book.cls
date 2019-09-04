@@ -33,12 +33,12 @@
 \newif\iffontadvance\fontadvancefalse % for font control
 
 \keys_define:nn { Muse-Book }{
-	bibstyle              .choice:                                             ,
-	bibstyle              .default:n = super                                   ,
-	bibstyle / super      .code:n = \PassOptionsToPackage{super}{gbt7714}      ,
-	bibstyle / numbers    .code:n = \PassOptionsToPackage{numbers}{gbt7714}    ,
-	bibstyle / authoryear .code:n = \PassOptionsToPackage{authoryear}{gbt7714} ,
-	bibstyle / unknown    .code:n = \msg_error:nnxxx { Muse-Book } { unknown-choice } { bibstyle } { super, numbers, authoryear } { The~choice~' #1 '~is~invalid~for~bibstyle	}, 
+% 	bibstyle              .choice:                                             ,
+% 	bibstyle              .default:n = super                                   ,
+% 	bibstyle / super      .code:n = \PassOptionsToPackage{super}{gbt7714}      ,
+% 	bibstyle / numbers    .code:n = \PassOptionsToPackage{numbers}{gbt7714}    ,
+% 	bibstyle / authoryear .code:n = \PassOptionsToPackage{authoryear}{gbt7714} ,
+% 	bibstyle / unknown    .code:n = \msg_error:nnxxx { Muse-Book } { unknown-choice } { bibstyle } { super, numbers, authoryear } { The~choice~' #1 '~is~invalid~for~bibstyle	}, 
 		
 	font           .choice:           ,	
 	font           .default:n = empty ,
@@ -110,7 +110,7 @@
     setspace       ,
 %    pifont         ,
     float          ,
-    gbt7714        ,
+%    gbt7714        ,
 %    natbib        ,
     hyperref       ,
 %    algorithm      ,
@@ -493,7 +493,7 @@ number=\zhnumber{\arabic{part}},
 
 
 
-\renewcommand{\citep}[1]{{\color{blue}\citeauthor{#1}(\citeyearpar{#1})}}
+%\renewcommand{\citep}[1]{{\color{blue}\citeauthor{#1}(\citeyearpar{#1})}}
 \crefformat{figure}{#2图#1#3}
 \crefrangeformat{figure}{图(#3#1#4)\;$\sim$\;(#5#2#6)}
 \crefmultiformat{figure}{图~(#2#1#3)}{和~(#2#1#3)}{，(#2#1#3)}{和~(#2#1#3)}
