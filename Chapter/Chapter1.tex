@@ -1,0 +1,252 @@
+% !TEX root = ./Note.tex
+\chapter{量子力学的基本原理与数学表达}
+
+\section{量子力学的基本假设}
+\begin{enumerate}
+    \item 微观态的状态用希尔伯特空间的波函数表示
+    \item 微观系统的力学量用希尔伯特空间的线性厄米算符来表示;本征值方程 \( \hat{A}\ket{a_i}=a_i\ket{a_i} \) \begin{itemize}
+        \item 力学量的取值仅限于它的本征值
+        \item 完备性： \( \ket*{\psi(t)}=\sum\limits_{i}^{}c_i\ket*{a_i} \) , \( \qty|c_i|^2 \) 给出测量 \( \hat{A} \) 得到 \( a_i \) 的概率 \( \sum\limits_{i}^{}\qty|c_i|^2=1 \) 
+        \item 设测量 \( \hat{A} \) 得到 \( a_i \) ，则系统测量后会进入本征态 \( a_i \) 中
+    \end{itemize}
+    \item 微观系统中每个粒子在直角坐标中的坐标算符和动量算符满足下列关系： \( \qty[\hat{x},\hat{p}]=i\hbar \quad \qty[\hat{x_i},\hat{p_j}]=\delta_{ij}i\hbar \) 。对于同一粒子： \( \qty[r_i,r_j]=0 \quad \qty[p_i,p_j]=0 \) ，不同粒子全部对易均为零。
+    \item 微观系统状态 \( \ket{\psi(t)} \) 随时间的变化规律有薛定谔方程来决定。
+    \[
+        i\hbar\pderivative{t}\ket{\psi(t)}=\hat{H}\ket{\psi(t)}
+    \]
+    \item 全同性原理 任意两粒子的波函数状态对调后的波函数是对称的(玻色子)或反对称的(费米子)
+\end{enumerate}
+
+\section{Dirac 符号，若干常用算符}
+\subsection{右矢与左矢(Dirac 记号)}
+
+\begin{enumerate}
+    \item 右矢(ket) 态矢量： \( \ket*{\psi(t)},\ket*{\varphi(t)} \) ;本征态： \( \ket*{a_i}.\ket*{x},\ket*{\vec{p}},\ket*{lm} \) 
+    \item 左矢： \( \bra{\psi(t)},\bra{\varphi(t)} \) ，本征态： \( \bra{a_i},\bra{s},\bra{\vec{p}}.\bra{lm} \) 
+\end{enumerate}
+
+\subsection{内积(inner product)}
+\[
+    \bra{\varphi(t)}\cdot\ket*{\psi(t)}\equiv\braket*{\varphi(t)}{\psi(t)}
+\]
+\[
+    \bra{a_i}\cdot\ket*{a_j}=\braket*{a_i}{a_j}
+\]
+内积的性质： \( \braket*{\varphi}{\psi}\equiv\braket*{\psi }{\varphi}^* \) (复共轭)
+
+上式中，令 \( \varphi=\psi  \) ，则有 \( \braket*{\psi }{\psi}\equiv\braket*{\psi }{\psi }^*\Rightarrow\braket*{\psi }{\psi } \) 为实常数。写作 \( \braket*{\psi }{\psi }\equiv\qty|\psi| \) (模方)。 \( \qty|\psi|^2\ge 0 \) ，仅当 \( \ket*{\psi }=0 \) 时，等号成立。
+
+\begin{itemize}
+    \item  \( \braket*{\varphi}{\psi }=0,(\ket*{\varphi}\ne 0,\ket{\psi }\ne 0) \)
+    \item 态的归一化 \( \braket*{\psi}{\psi }=1 \quad\braket*{a_i}{a_i}=1\) 
+    \item Chwartz 不等式 \[
+        \qty|\braket*{\varphi}{\psi }|^2\le\braket*{\varphi}{\varphi}\braket{\psi }\]
+        \item 三角不等式：  \( \sqrt{(\bra{\varphi }^\dagger\ket*{\psi}(\ket*{\varphi}^\dagger\ket*{\psi }))}\le\sqrt{\braket*{\varphi}{\varphi}}+\sqrt{\braket*{\psi }{\psi }} \) 
+\end{itemize}
+
+\subsection{外积(outer product)}
+ \( \ketbra*{\varphi}{\psi }\text{or}(\ketbra*{\psi }{\varphi}) \) 外积是算符。
+ \[
+    \begin{cases}
+     (\ketbra*{\varphi}{\psi })\ket*{a}=\braket*{\psi }{a}\ket*{\varphi}\\ 
+     \bra{b}(\ketbra*{\varphi}{\psi })=\braket*{b}{\varphi}\bra{\psi }
+    \end{cases}
+ \]
+投影算符  \( \hat{p }_\phi=\ketbra*{\phi }{\phi } \) 
+\[
+\begin{cases}
+    \hat{p}_\phi=\braket*{\phi }{a}\ket*{\phi }\\ 
+    \bra{b}\hat{p }_\phi=\braket*{b}{\phi }\bra{\phi }
+\end{cases}    
+\]
+
+\subsection{线性算符与反线性算符}
+\begin{itemize}
+    \item 线性算符 \( \hat{A} \) \[\hat{A}\qty(c_1\ket*{\psi_1}+c_2\ket*{\psi_2})=c_1\hat{A}\ket*{\psi_1}+c_2\hat{A}\ket*{\psi_2}\]
+    \item 反线性算符 \( \hat{B} \) \[\hat{B}\qty(c_1\ket*{\psi_1}+c_2\ket*{\psi_2})=c_1^*\hat{B}\ket*{\psi_1}+c_2^*\hat{B}\ket*{\psi_2}
+        \]
+\end{itemize}
+
+\subsection{厄米共轭算符与厄米算符、反厄米算符}
+\begin{itemize}
+    \item 考虑 \( \ket*{\psi^\prime}=\hat{A}\ket*{\psi } \) 则 \( \bra{\psi^\prime}=\bra{\psi}\hat{A}^\dagger \)  \( \hat{A}^\dagger \) 是 \( \hat{A} \) 的厄米共轭算符 \[\begin{cases}
+        \braket*{\psi^\prime}{\varphi}=\mel{\psi }{\hat{A}^\dagger}{\varphi}\\ 
+        \braket*{\psi^\prime}{\varphi }=\braket*{\varphi}{\psi^\prime }^*=\mel{\varphi}{\hat{A}}{\psi}^*
+    \end{cases}\Rightarrow\mel{\psi }{\hat{A}^\dagger}{\varphi}=\mel{\varphi}{\hat{A}}{\psi }^*\]
+\end{itemize}
+对于任意的 \( \ket*{\psi } \) 和 \( \ket*{\varphi} \) 若算符 \( \hat{B} \) 满足
+\[
+    \mel{\psi }{\hat{B}^\dagger}{\varphi}=\mel{\varphi}{\hat{A}}{\psi }^*
+\]
+则 \( \hat{B} \) 即为 \( \hat{A} \) 的厄米共轭算符 \( \hat{B}=\hat{A}^\dagger \) .
+
+由上式关系可证：\[
+    \begin{cases}
+        \qty(\hat{A}\hat{B})^\dagger=\hat{B}^\dagger\hat{A}^\dagger\\ 
+        \qty(\hat{A}^\dagger)^\dagger=\hat{A}\\ 
+        \qty(\ketbra{\psi }{\varphi})^\dagger=\ketbra{\varphi }{\psi },\qty(\text{若}\ket*{\varphi}=\ket*{\psi}\Rightarrow\qty(\ketbra{\psi }{\psi })^\dagger=\ketbra{\psi }{\psi })\\ 
+        c^\dagger=c^*,\qty(c\text{为复常数})
+    \end{cases}\]
+
+若 \( \hat{A}^\dagger =\hat{A}\) ,则称 \( \hat{A} \) 为厄米算符。(显然，投影算符 \( \hat{p}_\phi=\ketbra{\phi}{\phi } \) 是厄米算符)
+
+厄米算符的若干特性
+\begin{enumerate}
+    \item  \( \hat{A}\ket*{a_i}=a_i\ket*{a_i} \) ,本征值 \( a_i \) 为实数
+    \item 正交性：厄米算符的属于不同本征值的本征态正交 \( \braket*{a_i}{a_j}=\delta_{ij}=\begin{cases}
+        1,i=j\\ 
+        0,i\ne j
+    \end{cases} \)  
+    \item 完备性：  \( \ket*{\psi(t)}=\sum\limits_{i}^{}c_i(t)\ket*{a_i} \) 
+\end{enumerate}
+
+若 \( \hat{A}^\dagger=-\hat{A} \) ,则称 \( \hat{A} \) 为反厄米算符。
+
+\subsection{幺正算符 \( \hat{U} \) (unitary operator)}
+
+定义式： \( \hat{U}^\dagger=\hat{U}^{-1}\Rightarrow\hat{U}\hat{U}^{-1}=\hat{U}^{-1}\hat{U}=I\Rightarrow\hat{U}\hat{U}^\dagger=\hat{U}^\dagger\hat{U}=I \) ，其中 \( I \) 为单位矩阵。
+
+ \( \hat{U}\ket*{\psi }\equiv\ket*{\psi^\prime},\hat{U}\ket*{\varphi}\equiv\ket*{\varphi^\prime} \) 
+
+则有：
+\[
+    \braket*{\psi^\prime}{\varphi^\prime}=\mel{\psi }{\hat{U}^\dagger\hat{U}}{\varphi }=\braket*{\psi }{\varphi}
+\]
+因此幺正算符作用下，内积保持不变。
+
+\textbf{幺正算符的本征值是模为 \( 1 \) 的复数}
+
+
+\subsection{正规算符 \( \hat{N}  \) (normal operator) }
+
+定义式： \( \qty[\hat{N},\hat{N}^\dagger]=0 \) 
+
+厄米算符、幺正算符是正规算符。
+
+正规算符属于不同本征值的不同本征态正交：
+\[
+    \hat{N}\ket*{n}=n\ket*{n},\hat{N}\ket*{m}=m\ket*{m}\Rightarrow\braket*{n}{m}=0\quad (n\ne m)
+\]
+
+谱展开
+\[
+    \hat{N}=\sum\limits_{n}^{}n\ketbra*{n}{n}
+\]
+
+\section{表现与表象变换}
+\subsection[A 表象 A+ =A 分立谱]{ \( \hat{A}- \) 表象  \( \qty(\hat{A}^\dagger=\hat{A}) \) 分立谱}
+\[
+    \hat{A}\ket*{a_i}=a_i\ket*{a_i}
+\]
+\[
+    \begin{cases}
+        \braket*{a_i}{a_j}=\delta_{ij}&\text{正交性}\\ 
+        \ket*{\psi(t)}=\sum\limits_{i=1}^{n}c_i(t)\ket*{a_i}&\text{完备性}  
+    \end{cases}\]
+
+完备性的算符表达式：
+\[
+    \begin{aligned}
+        \ket*{\psi(t)}&=\sum\limits_{i=1}^{n}c_i(t)\ket*{a_i}\\ 
+        \braket*{a_j}{\psi(t)}&=\sum\limits_{i=1}^{n}\braket*{a_j}{a_i}\\ 
+        &=\sum\limits_{i=1}^{n}c_i(t)\delta_{ij}=c_j(t)\\ 
+        c_i(t)&=\braket*{a_i}{\psi(t)}  \\ 
+        \Rightarrow c_i(t)=\braket*{a_i}{\psi(t)}\\ 
+        \Rightarrow \ket*{\psi(t)}&=\sum\limits_{i=1}^{n}\ket*{\psi(t)}\ket*{a_i}\\
+        &=\sum\limits_{i=1}^{n}\ket*{a_i}\braket*{a_i}{\psi(t)}\\ 
+        \Rightarrow I\ket*{\psi(t)}=\qty[\sum\limits_{i=1}^{n}\ketbra*{a_i}{a_i}]\ket*{\psi(t)}\\ 
+        I&=\sum\limits_{i=1}^{n}\ketbra*{a_i}{a_i}
+    \end{aligned}
+\]
+\begin{itemize}
+    \item  \( \ket*{\psi(t)}=I\ket*{\psi(t)}=\sum\limits_{i=1}^{n}\ketbra*{a_i}{a_i}\ket*{\psi(t)} \) 
+    \item  \( \ket*{b_j}=I\ket*{b_j}=\sum\limits_{i=1}^{n}\ketbra*{a_i}{a_i}\ket*{b_j} \)   
+\end{itemize}
+称采用了 \( \hat{A}- \) 表象。
+
+而 \( \ket*{a_1},\cdots,\ket*{a_n} \) 称为该 \( n \) -维希尔伯特空间的基矢。
+\begin{enumerate}
+    \item  \( \hat{A}- \) 表象中的态矢量的表示 \[
+        \ket*{\psi(t)}=\sum\limits_{i=1}^{n}\ketbra*{a_i}{a_i}\ket*{\psi(t)}
+    \] 不同的态矢量对于不同的展开系数集合： \( \left.\{ \ketbra{a_i}{\psi(t)} \right.\} \) 
+    \item  \( \ket*{\psi(t)}\Rightarrow\begin{pmatrix}
+        \braket*{a_1}{\psi(t)}\\ 
+        \vdots \\ 
+        \braket*{a_n}{\psi(t)}
+    \end{pmatrix}\equiv\psi(t) \)  \( \braket*{a_i}{\psi(t)} \) 为几率幅。
+    \item  \( \bra{\psi(t)}=\bra{\psi(t)}I=\sum\limits_{i=1}^{n}\braket*{\psi(t)}{a_i}\bra{a_i}=\sum\limits_{i=1}^{n}\braket*{a_i}{\psi(t)}^*\bra{a_i} \) 
+    \item  \( \bra{\psi(t)}=\qty(\braket*{a_1}{\psi(t)}^*,\cdots,\braket*{a_n}{\psi(t)}^*)=\equiv\psi^(t)(t) \) 
+    \item 内积： \[\begin{aligned}
+        \braket*{\varphi}{\psi}&=\mel**{\varphi}{I}{\psi}\\ 
+        &=\sum\limits_{i=1}^{n}\braket*{\varphi}{a_i}\braket*{a_i}{\psi }\\ 
+        &= \qty(\braket*{a_1}{\psi(t)}^*,\cdots,\braket*{a_n}{\psi(t)}^*)=\equiv\psi^(t)(t)  \begin{pmatrix}
+            \braket*{a_1}{\psi(t)}\\ 
+            \vdots \\ 
+            \braket*{a_n}{\psi(t)}
+        \end{pmatrix}\\ 
+        &=\varphi^\dagger\psi 
+    \end{aligned}
+    \]
+    \item  \( \hat{A}- \) 表象中的算符表示 \[
+        \begin{aligned}
+            \hat{F}&=\qty(\sum\limits_{i}^{}\ketbra{a_k}{a_i}\hat{F}\sum\limits_{j}^{}\ketbra*{a_j}{a_j})  \\ 
+            & =\sum\limits_{jk}^{}\ketbra{a_i}{a_i}\hat{F}\ketbra{a_j}{a_j}\\ 
+            & =\sum\limits_{jk}^{}\ket{a_i}F_{ij}\bra{a_j}
+        \end{aligned}
+    \]
+    其中 \( F_{ij}=\mel{a_i}{F}{a_j} \) .
+    \item 算符 \( \hat{F} \) 对应于一个 \( n\times n \) 的方阵。
+    \[
+        \hat{F}\longrightarrow\begin{pmatrix}
+            F_{11} & F_{12} & \cdots & F_{1n} \\ 
+            \vdots & \vdots & \ddots & \vdots \\ 
+            F_{n1} & F_{n2} & \cdots & F_{nn} 
+        \end{pmatrix}\]
+\end{enumerate}
+
+
+ \( \hat{F} \) 和 \( \hat{F}^\dagger \) 的矩阵元之间的关系
+\[
+\begin{aligned}
+    F_{ij}&=\mel{a_i}{\hat{F}}{a_j}=\mel{a_j}{\hat{F}^\dagger}{a_i}^* \\ 
+    &=\qty(F_{ji}^{\dagger})^*\\ 
+    \rightarrow F_{ij}^{\dagger}=F_{ji}^{*}
+\end{aligned}
+\]
+
+对于厄米算符： \( \hat{F}^\dagger=\hat{F},F_{ij}^{\dagger}=F_{ij} \Rightarrow F_{ij}=F_{jk}^{*} \) 
+
+ \( \hat{U} \) 与 \( \hat{U}_{}^{-1} \) 的矩阵元之间的关系( \( \hat{U}^\dagger=\hat{U}_{}^{-1} \) )
+ \[
+     \begin{aligned}
+         U_{ij}^{-1}=U_{ij}^{\dagger}=U_{ji}^{*}\\ 
+         \Rightarrow U_{ij}^{-1}=U_{ji}^{*}     
+     \end{aligned}
+\]
+
+算符 \( \hat{A} \) 的矩阵元( \( \hat{A}- \) 表象)
+\[
+    \begin{aligned}
+        A_{ij}=\mel{a_i}{\hat{A}}{a_j}=a_j\braket*{a_i}{a_j}=a_j\delta_{ij}^{}\text{(对角矩阵)}
+    \end{aligned}
+\]
+\[\scriptsize
+A=\mqty(\dmat{a_1,\ddots,a_i,\ddots,a_j,\ddots,a_n})   
+\]
+\[
+   \begin{aligned}
+    \Rightarrow\hat{A}&=\sum\limits_{ij}^{}A_{ij}^{}\braket*{a_i}{a_j} \\ 
+    &=\sum\limits_{ij}^{}a_i\delta_{ij}^{}\ketbra{a_i}{a_j}=\sum\limits_{i}^{}a_i\ketbra{a_i}{a_i}
+   \end{aligned} 
+\]
+
+\[
+    \ketbra{\alpha}{\beta}=\begin{pmatrix}
+        \braket*{a_i}{\alpha}\\\vdots\\\braket*{a_n}{\alpha}
+    \end{pmatrix}\begin{pmatrix}
+        \braket*{\beta}{a_1}&\cdots&\braket*{\beta}{a_n}        
+    \end{pmatrix}=\begin{pmatrix}
+        \braket*{a_1}{\alpha}\braket*{\beta}{a_i}&\cdots&\braket*{a_1}{\alpha}\braket*{\beta}{a_n}\\ 
+        \vdots&\ddots&\vdots\\ 
+        \braket*{a_n}{\alpha}\braket*{\beta}{a_1}&\cdots&\braket*{a_n}{\alpha}\braket*{\beta}{a_n}
+    \end{pmatrix}\]
